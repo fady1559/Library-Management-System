@@ -42,7 +42,7 @@ void printascii(string file)
     ifstream infile; // Create an input file stream object
 
     // Attempt to open the file with a hardcoded path
-    infile.open("C:\\Users\\Abdelhamid\\Downloads\\DataStructureProject_last\\asci.text.txt");
+    infile.open("E:\\college\\3\\1\\data structures and algorithms\\DataStructureProject_last\\asci.text.txt");
     if (infile.is_open())   // Check if the file is successfully opened
     {
         // Read the file line by line until the end
@@ -85,9 +85,9 @@ int main()
 {
     //asci art output
     string file="asci.text";
-    printascii(file);
-    Sleep(30000);     // DELAY FOR 30 SECOND
-    system("cls");   // Clear Terminal Window
+    //printascii(file);
+    //Sleep(8000);     // DELAY FOR 30 SECOND
+    //system("cls");   // Clear Terminal Window
 
     int choose;  // To store the user's choice
     char k;      // To store the user's response for repeating operations
@@ -95,7 +95,7 @@ int main()
 
     do
     {
-        system("cls"); // Clear Terminal Window
+        //system("cls"); // Clear Terminal Window
 
         Print_Choices_Menu(); // Display the menu options
 
@@ -106,7 +106,7 @@ int main()
         switch (choose)
         {
         case 1:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.insert_book();
             break;
         case 2:
@@ -114,31 +114,31 @@ int main()
             obj.delete_book();
             break;
         case 3:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.sort();
             break;
         case 4:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.display();
             break;
         case 5:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.destroy_list();
             break;
         case 6:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.search();
             break;
         case 7:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.get_length();
             break;
         case 8:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.updateBook();
             break;
         default:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             cout << "Unexpected error.\n"; // This will never happen due to the input validation
             break;
         }
@@ -165,17 +165,17 @@ int main()
     }
     while((k == 'y') || (k == 'Y'));   // Repeat if the user enters 'y' or 'Y'
 
-    system("cls"); // Clear Terminal Window
+    //system("cls"); // Clear Terminal Window
 
     // End of the program
     cout << "*****************************************\n";
     cout << "      Exiting the program. Goodbye!      \n";
     cout << "*****************************************\n";
 
-    system("cls");
+    //system("cls");
 
-    printascii(file);
-    Sleep(30000);   //Delay for 30 second
+    //printascii(file);
+    //Sleep(30000);   //Delay for 30 second
 
     return 0;
 }

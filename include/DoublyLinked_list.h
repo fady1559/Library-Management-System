@@ -1,5 +1,5 @@
-#ifndef DoublyLinked_list_h
-#define DoublyLinked_list_h
+#ifndef DOUBLY_LINKED_LIST_H
+#define DOUBLY_LINKED_LIST_H
 
 #include "book.h"  // For the book class, which holds the data for each node
 
@@ -54,4 +54,4 @@ class doubly_linkedlist
     int length;  // Number of nodes in the list
 };
 
-#endif
+#endif // DOUBLY_LINKED_LIST_H

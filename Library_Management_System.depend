@@ -101,3 +101,31 @@
 1735152526 source:c:\users\abdelhamid\downloads\datastructureproject_last\src\booksmanage.cpp
 	"BooksManage.h"
 
+1735152526 source:e:\college\3\1\data structures and algorithms\datastructureproject_last\src\booksmanage.cpp
+	"BooksManage.h"
+
+1735040924 e:\college\3\1\data structures and algorithms\datastructureproject_last\include\booksmanage.h
+	"DoublyLinked_list.h"
+	"book.h"
+
+1735040912 e:\college\3\1\data structures and algorithms\datastructureproject_last\include\doublylinked_list.h
+	"book.h"
+
+1735152208 e:\college\3\1\data structures and algorithms\datastructureproject_last\include\book.h
+	"../Std_Libraries.h"
+
+1735144182 e:\college\3\1\data structures and algorithms\datastructureproject_last\std_libraries.h
+	<iostream>
+	<iomanip>
+	<limits>
+	<stdlib.h>
+	<fstream>
+	<time.h>
+	<windows.h>
+
+1735152462 source:e:\college\3\1\data structures and algorithms\datastructureproject_last\src\doublylinked_list.cpp
+	"DoublyLinked_list.h"
+
+1735751211 source:e:\college\3\1\data structures and algorithms\datastructureproject_last\main.cpp
+	"BooksManage.h"
+
