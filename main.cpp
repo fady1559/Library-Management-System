@@ -66,7 +66,7 @@ void printascii(string file)
  *@param  void
  *@return void
  */
-void Print_Choices_Menu()
+void Book_Management_Menu()
 {
     cout << "*****************************************\n";
     cout << "          Book Management Menu           \n";
@@ -80,6 +80,16 @@ void Print_Choices_Menu()
     cout << "7. Get the length of the book list\n";
     cout << "8. Update information for a certain book\n\n";
 }
+void Main_Menu()
+{
+     cout << "*****************************************\n";
+     cout << "               Main Menu                 \n";
+     cout << "*****************************************\n\n";
+
+        cout<<"1-Show lists "<<endl;
+        cout<<"2-creat new list "<<endl;
+}
+
 
 int main()
 {
@@ -88,16 +98,26 @@ int main()
     //printascii(file);
     //Sleep(8000);     // DELAY FOR 30 SECOND
     //system("cls");   // Clear Terminal Window
-
     int choose;  // To store the user's choice
-    char k;      // To store the user's response for repeating operations
-    book_manage obj; // Object of the book_manage class
+    int n;      // TO store the user choise
+    char k;    // To store the user's response for repeating operations
+    book_manage obj;      
+    do 
+    {
+        Main_Menu();
+        cout<<"enter your choise : ";
+        cin>>n;
+     switch (n)
+     {
+     case 1:
+        obj.show_lists();
 
-    do
+        cout<<"enter the number of list you want to open : ";
+        cin>>obj.index;
+        do
     {
         //system("cls"); // Clear Terminal Window
-
-        Print_Choices_Menu(); // Display the menu options
+        Book_Management_Menu(); // Display the menu options
 
         // Input validation for the user's choice (1-8)
         choose = getValidatedInput(1, 8, "Enter your choice (1-8): ");
@@ -110,7 +130,7 @@ int main()
             obj.insert_book();
             break;
         case 2:
-            system("cls"); // Clear Terminal Window
+            //system("cls"); // Clear Terminal Window
             obj.delete_book();
             break;
         case 3:
@@ -162,13 +182,26 @@ int main()
                 break; // Valid input, break out of the loop
             }
         }
-    }
-    while((k == 'y') || (k == 'Y'));   // Repeat if the user enters 'y' or 'Y'
+    }while((k == 'y') || (k == 'Y'));   // Repeat if the user enters 'y' or 'Y' 
+        break;
 
+     case 2:
+        cout<<"enter the number of the list you want to creat : ";
+        cin>>obj.index;
+        cout<<"enter the name of the list : ";
+        cin>>obj.library_list[obj.index].list_name;
+        break;
+
+     default:
+        break;
+    }
+    cout<<"\n\nDo you want to go back to the Main Menu  (y/n) : ";
+    cin>>k;
+    }while((k == 'y') || (k == 'Y'));   // Repeat if the user enters 'y' or 'Y'
     //system("cls"); // Clear Terminal Window
 
     // End of the program
-    cout << "*****************************************\n";
+    cout << "\n\n\n*****************************************\n";
     cout << "      Exiting the program. Goodbye!      \n";
     cout << "*****************************************\n";
 
