@@ -274,7 +274,7 @@ void doubly_linkedlist::update_book(const string& book_name)
  */
 void doubly_linkedlist::display_Forward()
 {
-    system("cls"); // Clear Terminal Window
+    //system("cls"); // Clear Terminal Window
 
     node* current = head;  // Start from the head
    cout << left << setw(10) << "No."
@@ -307,7 +307,7 @@ void doubly_linkedlist::display_Forward()
  */
 void doubly_linkedlist::display_backward()
 {
-    system("cls"); // Clear Terminal Window
+    //system("cls"); // Clear Terminal Window
 
     cout << left << setw(10) << "No."
          << setw(30) << "Book Title"
@@ -412,12 +412,6 @@ void doubly_linkedlist::sort()
 /// @brief Free all nodes in the list and reset to empty
 void doubly_linkedlist::freeList()
 {
-    if (isEmpty())  // Check if the list is empty
-    {
-        cout << "The list is already empty" << endl;  // Print message if the list is already empty
-        return;
-    }
-
     node* temp;  // Create pointer for deleting nodes
     while (head)  // While there are nodes to delete
     {

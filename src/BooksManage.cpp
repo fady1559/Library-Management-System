@@ -47,10 +47,10 @@ void book_manage::insert_book() {
 
     switch (choice) {
         case 1:
-            library.insert_first(); // Insert book at the beginning
+            library_list[index].insert_first(); // Insert book at the beginning
             break;
         case 2:
-            library.insert_last(); // Insert book at the end
+            library_list[index].insert_last(); // Insert book at the end
             break;
         case 3:
             {
@@ -58,7 +58,7 @@ void book_manage::insert_book() {
                 cout << "Enter the position: ";
                 cin >> position;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clearing the buffer after position input
-                library.insert_at_pos(position); // Insert book at a specific position
+                library_list[index].insert_at_pos(position); // Insert book at a specific position
             }
             break;
     }
@@ -79,7 +79,7 @@ void book_manage::delete_book() {
     cout << "4 - Delete book by the title\n";
     cout << "****************************************\n";
 
-    if (library.isEmpty()) {  // Check if the list is empty
+    if (library_list[index].isEmpty()) {  // Check if the list is empty
         cout << "The list is empty.\n";  // Print message if the list is empty
         return;
     }
@@ -88,10 +88,10 @@ void book_manage::delete_book() {
 
     switch (choice) {
         case 1:
-            library.delete_first(); // Delete book from the beginning
+            library_list[index].delete_first(); // Delete book from the beginning
             break;
         case 2:
-            library.delete_at_end(); // Delete book from the end
+            library_list[index].delete_at_end(); // Delete book from the end
             break;
         case 3:
             {
@@ -99,7 +99,7 @@ void book_manage::delete_book() {
                 cout << "Enter the position: ";
                 cin >> position;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clearing the buffer after position input
-                library.delete_at_pos(position); // Delete book from a specific position
+                library_list[index].delete_at_pos(position); // Delete book from a specific position
             }
             break;
         case 4:
@@ -107,7 +107,7 @@ void book_manage::delete_book() {
                 string title;
                 cout << "Enter the name of the book you want to delete: ";
                 getline(cin, title);
-                library.delete_book(title); // Delete book by title
+                library_list[index].delete_book(title); // Delete book by title
             }
             break;
     }
@@ -123,7 +123,7 @@ void book_manage::search() {
     cout << "           Search Book Menu             \n";
     cout << "****************************************\n";
 
-     if (library.isEmpty()) {
+     if (library_list[index].isEmpty()) {
         cout << "The list is empty. No book to update.\n";
         return;
     }
@@ -132,7 +132,7 @@ void book_manage::search() {
     cout << "Enter the name of the book you want to search for: ";
     getline(cin, title);
 
-    node* search = library.search_Book(title); // Search for the book by title
+    node* search = library_list[index].search_Book(title); // Search for the book by title
     if (search) {
         int x;
         cout << "Book is found \n\n";
@@ -151,7 +151,7 @@ void book_manage::search() {
                 search->data.update_data();
                 break;
             case 3:
-                library.delete_book(search);
+                library_list[index].delete_book(search);
                 break;
             case 4:
                 break;
@@ -172,12 +172,12 @@ void book_manage::sort() {
     cout << "****************************************\n";
 
 
-    if(library.isEmpty())
+    if(library_list[index].isEmpty())
     {
     cout<<"the list is empty\n";
     return;
     }
-    else if (library.get_length()==1)
+    else if (library_list[index].get_length()==1)
     {
         cout<<"the library has only one book ";
         return;
@@ -195,7 +195,7 @@ void book_manage::sort() {
 
     if (choice == 'y' || choice == 'Y') { // Check the input of user either 'y' or 'Y' to sort the list
         cout << "Sorting the list...\n";
-        library.sort(); // Sort the books
+        library_list[index].sort(); // Sort the books
     } else {
         cout << "Sorting process aborted.\n";
     }
@@ -214,7 +214,7 @@ void book_manage::display() {
     cout << "2 - Display list backward\n";
     cout << "****************************************\n";
 
-     if (library.isEmpty())  // Check if the list is empty
+     if (library_list[index].isEmpty())  // Check if the list is empty
     {
         cout << "The list is empty\n";  // Print message if the list is empty
         return;
@@ -223,9 +223,9 @@ void book_manage::display() {
     int choice = getValidatedInput(1, 2, "Enter the number of the operation (1-2): ");
 
     if (choice == 1) {
-        library.display_Forward(); // Display books in forward order from head to tail
+        library_list[index].display_Forward(); // Display books in forward order from head to tail
     } else {
-        library.display_backward(); // Display books in backward order from tail to head
+        library_list[index].display_backward(); // Display books in backward order from tail to head
     }
 }
 
@@ -239,14 +239,28 @@ void book_manage::updateBook() {
     cout << "           Update Book Menu             \n";
     cout << "****************************************\n";
 
-     if (library.isEmpty()) {
+     if (library_list[index].isEmpty()) {
         cout << "The list is empty. No book to update.\n";
         return;
     }
     string title;
     cout << "Enter the name of the book you want to update its information: ";
     getline(cin, title);
-    library.update_book(title); // Update the book information
+    library_list[index].update_book(title); // Update the book information
+}
+
+void book_manage::show_lists()
+{
+    cout << "****************************************\n";
+    cout << "               Lists Menu               \n";
+    cout << "****************************************\n";
+    for(int i=0;i<5;i++)
+        {
+            if(library_list[i].list_name!= "NUll")
+             cout<<"list "<<i+1<<" : "<< library_list[i].list_name<<endl; 
+             else
+             return;
+        }
 }
 
 /**
@@ -259,12 +273,12 @@ void book_manage::destroy_list() {
     cout << "        Destroy Book List Menu          \n";
     cout << "****************************************\n";
 
-        if (library.isEmpty())
+        if (library_list[index].isEmpty())
             {
                 cout<<"\nThe list is Empty\n";
                 return;
             }                                                               // Return if the list is empty or has only one book
-            else if (library.get_length()==1)
+            else if (library_list[index].get_length()==1)
             {
                 cout<<"\nThe list contain only  book\n";
             }
@@ -281,7 +295,7 @@ void book_manage::destroy_list() {
 
     if (choice == 'y' || choice == 'Y') { // Check the input of user either 'y' or 'Y' to destroy list
         cout << "Freeing the list...\n";
-        library.freeList(); // Free the list
+        library_list[index].freeList(); // Free the list
     } else {
         cout << "Freeing process aborted.\n";
     }
@@ -293,5 +307,5 @@ void book_manage::destroy_list() {
  *@return void
  */
 void book_manage::get_length() {
-    cout << "The list contains " << library.get_length() << " Books\n";
+    cout << "The list contains " << library_list[index].get_length() << " Books\n";
 }

@@ -48,6 +48,7 @@ class doubly_linkedlist
     bool isEmpty();  // Check if the list is empty
     void freeList();  // Delete all nodes in the list to free memory
 
+    string list_name;
     protected:
     node* head;  // Pointer to the first node (head) of the list
     node* tail;  // Pointer to the last node (tail) of the list

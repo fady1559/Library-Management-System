@@ -16,7 +16,10 @@ class book_manage
     void destroy_list();
     void get_length ();
     void updateBook();
-    doubly_linkedlist library;
+    void show_lists();
+
+    doubly_linkedlist library_list[5];
+    int index;
 };
 
 #endif
