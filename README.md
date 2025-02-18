@@ -1,1 +1,1 @@
-"# library_management_system_project" 
+"This is a Library Management System developed in C++ that offers a range of functionalities, including book updating, searching, insertion, display, sorting, deletion, and length retrieval. The system is implemented using a doubly linked list data structure."
